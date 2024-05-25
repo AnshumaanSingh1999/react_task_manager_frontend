@@ -1,12 +1,23 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const Home=()=>{
 
 
-    const userid=localStorage.getItem("UserID")
+    const navigate=useNavigate()
+
+    const logout=()=>{
+        localStorage.clear()
+        navigate("/")
+      }
+
+
+    const UserID=localStorage.getItem("UserID")
+    const Username=localStorage.getItem("Username")
+
 
     return(
         <div className="container">
@@ -16,10 +27,10 @@ const Home=()=>{
 
 <h1 className="col-sm-8">Task Manager</h1>
 
-<h3 className="col-sm-3">Welcome {userid}</h3>
+<h3 className="col-sm-3">Welcome {Username}</h3>
 
 <br></br>
-<button className="col-sm-1">LogOut</button>
+<button className="col-sm-1" onClick={logout}>LogOut</button>
 
 
 

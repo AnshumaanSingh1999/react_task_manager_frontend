@@ -39,6 +39,8 @@ const SignIn=()=>{
 
 
                 localStorage.setItem("UserID",resp.data[0].userid)
+                localStorage.setItem("Username",resp.data[0].username)
+
                 navigate("/home")
                     
                 // alert("Hole")
