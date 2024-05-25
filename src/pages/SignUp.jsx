@@ -37,7 +37,7 @@ const SignUp=()=>{
             }
             else{
                 console.log(resp)
-                alert("API not working")
+                alert("Can't Add User.")
             }
         }
     }

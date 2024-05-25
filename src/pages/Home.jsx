@@ -2,9 +2,18 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const Home=()=>{
+
+    const UserID=localStorage.getItem("UserID")
+    const Username=localStorage.getItem("Username")
+
+    const userid=UserID
+
+
+    const [usertasks,setusertasks]=useState([])
 
 
     const navigate=useNavigate()
@@ -15,8 +24,27 @@ const Home=()=>{
       }
 
 
-    const UserID=localStorage.getItem("UserID")
-    const Username=localStorage.getItem("Username")
+      useEffect(()=>{
+
+
+        const fetchallusertasks=async()=>{
+          try{
+            const res=await axios.get("http://localhost:8800/tasks/")
+            console.log(res)
+            setusertasks(res.data)
+          }
+          catch(err){
+            console.log(err)
+          }
+        }
+        
+        fetchallusertasks()
+      },[])
+
+    
+
+
+  
 
 
     return(
@@ -63,12 +91,17 @@ const Home=()=>{
         </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>Kuch</td>
-        <td>Kuch</td>
-        <td><button>Update Task</button></td>
-        <td><button>Delete Task</button></td>
-        </tr>
+
+    {usertasks.map((task) =>(
+            <tr key={task.taskid}>
+              <td>{task.task}</td>
+              <td>{task.status}</td>
+              <td><button>Update Task</button></td>
+              <td><button>Delete Task</button></td>
+            </tr>
+          ))}
+
+ 
     </tbody>
     </table>
 
