@@ -5,10 +5,27 @@ import { useEffect } from "react";
 
 const Home=()=>{
 
+
+    const userid=localStorage.getItem("UserID")
+
     return(
         <div className="container">
 
-<h1>Task Manager</h1>
+
+<div className="row">
+
+<h1 className="col-sm-8">Task Manager</h1>
+
+<h3 className="col-sm-3">Welcome {userid}</h3>
+
+<br></br>
+<button className="col-sm-1">LogOut</button>
+
+
+
+</div>
+
+
 
             
             <div className="addtask">
@@ -27,17 +44,20 @@ const Home=()=>{
 <div className="tasks">
     <table className="table table-hover">
     <thead>
+        <tr>
         <th>Task</th>
         <th>Status</th>
         <th>Update</th>
         <th>Delete</th>
+        </tr>
     </thead>
     <tbody>
-        
+    <tr>
         <td>Kuch</td>
         <td>Kuch</td>
         <td><button>Update Task</button></td>
         <td><button>Delete Task</button></td>
+        </tr>
     </tbody>
     </table>
 

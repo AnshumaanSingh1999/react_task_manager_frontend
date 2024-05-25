@@ -2,17 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 
-
 const Gateway=()=>{
-
-    return(
-
-        
+    return(        
         <div className="container">
-            
-
         <br></br>
-
         <div className="signin">
             <h1>Sign In</h1>
             <div className="row">
@@ -25,9 +18,7 @@ const Gateway=()=>{
                 <div className="col-sm-2"><button>Submit</button></div>
             </div>
         </div>
-
 <br></br>
-
         <div className="signup">
             <h1>Sign Up</h1>
             <div className="row">
@@ -40,11 +31,7 @@ const Gateway=()=>{
                 <div className="col-sm-2"><button>Submit</button></div>
             </div>
         </div>
-
-
         </div>
-                  
-
     );
 }
 
